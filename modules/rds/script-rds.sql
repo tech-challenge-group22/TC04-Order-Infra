@@ -35,30 +35,6 @@ CREATE TABLE order_item (
   order_item_qtd INT NOT NULL
 );
 
--- Esta tabela armazena os diferentes status possíveis para o pagamento.
-CREATE TABLE status_payment_enum (
-  id INT auto_increment PRIMARY KEY,
-  status_payment VARCHAR(100) NOT NULL
-);
-
--- Esta tabela armazena os diferentes métodos possíveis para o pagamento.
-CREATE TABLE payment_method_enum (
-  id INT auto_increment PRIMARY KEY,
-  payment_method VARCHAR(100) NOT NULL
-);
-
--- Esta tabela armazena informações do pagamento do pedido
-CREATE TABLE order_payment (
-  id INT auto_increment PRIMARY KEY,
-  last_update DATETIME NOT NULL,
-  order_id INT NOT NULL,
-  FOREIGN KEY (order_id) REFERENCES orders(id),
-  status_payment_enum_id INT NOT NULL,
-  FOREIGN KEY (status_payment_enum_id) REFERENCES status_payment_enum(id),
-  payment_method_enum_id INT NOT NULL,
-  FOREIGN KEY (payment_method_enum_id) REFERENCES payment_method_enum(id)
-);
-
 -- Definindo a codificação de caracteres para UTF-8
 SET character_set_client = utf8;
 SET character_set_connection = utf8;

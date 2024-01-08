@@ -1,0 +1,8 @@
+region             = "us-east-1"
+database_name      = "Orders"
+database_username  = ""
+database_password  = ""
+lab_role_arn       = "arn:aws:iam::650380094581:role/LabRole"
+session_token_aws  = ""
+access_key_aws     = ""
+secret_aws         = ""
