@@ -42,6 +42,12 @@ resource "aws_ecs_task_definition" "web" {
     session_token_aws = "${var.session_token_aws}"
     access_key_aws = "${var.access_key_aws}"
     secret_aws = "${var.secret_aws}"
+    output_orderpayment_sqs_url       = "${var.output_orderpayment_sqs_url}"
+    output_orderconfirmed_sqs_url       = "${var.output_orderconfirmed_sqs_url}"
+    input_paymentprocessed_sqs_url        = "${var.input_paymentprocessed_sqs_url}"
+    input_queue_finished_sqs_url        = "${var.input_queue_finished_sqs_url}"
+    sqs_polling_interval = "${var.sqs_polling_interval}"
+    sqs_message_group    = "${var.sqs_message_group}"
   })
   requires_compatibilities = ["FARGATE"]
   network_mode             = "awsvpc"
@@ -66,7 +72,6 @@ resource "random_string" "target_group" {
 resource "aws_alb_target_group" "alb_target_group" {
   lifecycle {
     create_before_destroy = true
-    ignore_changes = ["name"]
   }
 
   # name     = "${var.prefix}-alb-target-group-${random_id.target_group_sufix.hex}"
