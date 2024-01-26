@@ -5,7 +5,8 @@ CREATE TABLE orders (
   id INT auto_increment PRIMARY KEY,
   order_date DATETIME NOT NULL,
   order_total FLOAT NOT NULL,
-  customer_id INT
+  customer_id INT,
+  order_status INT
 );
 
 -- Esta tabela armazena os tipos de itens disponíveis.
@@ -55,7 +56,7 @@ INSERT INTO itens (item_type_id, item_name, item_description, item_img_url, item
 INSERT INTO itens (item_type_id, item_name, item_description, item_img_url, item_price) VALUES (4, 'Sorvete de Morango', 'Delicioso sorvete de morango', 'https://www.shutterstock.com/pt/image-photo/ice-cream-cone-vanilla-strawberry-flavors-645817927', 2.90);
 
 -- CADASTRANDO UM PEDIDO COM A DATA ATUAL PARA O PRIMEIRO CLIENTE
-INSERT INTO orders (order_date, order_total, customer_id) VALUES (NOW(), 35.60, 1);
+INSERT INTO orders (order_date, order_total, customer_id, order_status) VALUES (NOW(), 35.60, 1, 1);
 
 -- CADASTRANDO UM ITEM DE CADA CATEGORIA AO PEDIDO
 INSERT INTO order_item (order_id, item_id, order_item_qtd) VALUES (1, 1, 1);
