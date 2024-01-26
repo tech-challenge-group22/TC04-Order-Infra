@@ -1,7 +1,7 @@
 region             = "us-east-1"
 database_name      = "Orders"
 database_username  = "DeliverySystem"
-database_password  = "9eXkA5g02X"
+database_password  = ""
 lab_role_arn       = "arn:aws:iam::650380094581:role/LabRole"
 session_token_aws  = ""
 access_key_aws     = ""
