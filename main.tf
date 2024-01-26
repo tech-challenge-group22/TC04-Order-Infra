@@ -7,7 +7,6 @@ locals {
 
 provider "aws" {
   region  = "${var.region}"
-  profile = "lab"
 }
 
 terraform {
@@ -48,6 +47,9 @@ module dynamo {
   source = "./modules/dynamo"
 }
 
+module sqs {
+  source = "./modules/sqs"
+}
 
 module "ecs" {
   source              = "./modules/ecs"
@@ -71,6 +73,12 @@ module "ecs" {
   dbhost              = "${module.rds.rds_address}"
   execution_arn_role  = "${var.lab_role_arn}"
   rds_id              = "${module.rds.rds_id}"
+  output_orderpayment_sqs_url    = "${module.sqs.output_orderpayment_sqs_url}"
+  output_orderconfirmed_sqs_url  = "${module.sqs.output_orderconfirmed_sqs_url}"
+  input_paymentprocessed_sqs_url = "${var.input_paymentprocessed_sqs_url}"
+  input_queue_finished_sqs_url   = "${var.input_queue_finished_sqs_url}"
+  sqs_message_group    = "${var.sqs_message_group}"
+  sqs_polling_interval = "${var.sqs_polling_interval}"
   depends_on = [
     module.rds,
     module.dynamo,

@@ -62,6 +62,30 @@
       {
         "name": "DB_HOST",
         "value": "${db_host}"
+      },
+      {
+        "name": "AWS_OUTPUT_PAYMENT_QUEUE_RECEIVED_URL",
+        "value": "${output_orderpayment_sqs_url}"
+      },
+      {
+        "name": "AWS_OUTPUT_ORDER_QUEUE_RECEIVED_URL",
+        "value": "${output_orderconfirmed_sqs_url}"
+      },
+      {
+        "name": "AWS_INPUT_PAYMENT_QUEUE_PROCESSED_URL",
+        "value": "${input_paymentprocessed_sqs_url}"
+      },
+      {
+        "name": "AWS_INPUT_ORDER_QUEUE_FINISHED_URL",
+        "value": "${input_queue_finished_sqs_url}"
+      },
+      {
+        "name": "MSG_POLLING_INTERVAL",
+        "value": "${sqs_polling_interval}"
+      },
+      {
+        "name": "AWS_MESSAGE_GROUP",
+        "value": "${sqs_message_group}"
       }
     ],
     "healthCheck": {
