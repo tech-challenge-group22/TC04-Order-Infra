@@ -1,7 +1,7 @@
-output "output_orderpayment_sqs_url" {
-  value = "${aws_sqs_queue.order_received.url}"
+output "output_payment_queue_received" {
+  value = "${aws_sqs_queue.payment-queue-received.url}"
 }
 
-output "output_orderconfirmed_sqs_url" {
-  value = "${aws_sqs_queue.orderpayment_queue_received.url}"
+output "output_order_queue_received" {
+  value = "${aws_sqs_queue.order-queue-received.url}"
 }

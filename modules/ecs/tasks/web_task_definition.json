@@ -41,7 +41,7 @@
       },
       {
         "name": "SECRET_KEY_JWT_TOKEN",
-        "value": ""
+        "value": "${secret_key_jwt_token}"
       },
       {
         "name": "PORT",
@@ -65,15 +65,15 @@
       },
       {
         "name": "AWS_OUTPUT_PAYMENT_QUEUE_RECEIVED_URL",
-        "value": "${output_orderpayment_sqs_url}"
-      },
-      {
-        "name": "AWS_OUTPUT_ORDER_QUEUE_RECEIVED_URL",
-        "value": "${output_orderconfirmed_sqs_url}"
+        "value": "${output_payment_queue_received}"
       },
       {
         "name": "AWS_INPUT_PAYMENT_QUEUE_PROCESSED_URL",
-        "value": "${input_paymentprocessed_sqs_url}"
+        "value": "${input_payment_queue_processed}"
+      },
+      {
+        "name": "AWS_OUTPUT_ORDER_QUEUE_RECEIVED_URL",
+        "value": "${output_order_queue_received}"
       },
       {
         "name": "AWS_INPUT_ORDER_QUEUE_FINISHED_URL",

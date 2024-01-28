@@ -68,20 +68,23 @@ variable "secret_aws" {
   description = "AWS session token"
 }
 
-variable "output_orderpayment_sqs_url" {
+variable "output_payment_queue_received" {
 }
 
-variable "output_orderconfirmed_sqs_url" {
+variable "input_payment_queue_processed" {
 }
 
-variable input_paymentprocessed_sqs_url {
+variable "input_queue_finished_sqs_url" {
 }
 
-variable input_queue_finished_sqs_url {
+variable "output_order_queue_received" {
 }
 
 variable sqs_polling_interval {
 }
 
 variable sqs_message_group {
+}
+
+variable secret_key_jwt_token {
 }

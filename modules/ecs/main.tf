@@ -42,12 +42,13 @@ resource "aws_ecs_task_definition" "web" {
     session_token_aws = "${var.session_token_aws}"
     access_key_aws = "${var.access_key_aws}"
     secret_aws = "${var.secret_aws}"
-    output_orderpayment_sqs_url       = "${var.output_orderpayment_sqs_url}"
-    output_orderconfirmed_sqs_url       = "${var.output_orderconfirmed_sqs_url}"
-    input_paymentprocessed_sqs_url        = "${var.input_paymentprocessed_sqs_url}"
-    input_queue_finished_sqs_url        = "${var.input_queue_finished_sqs_url}"
+    output_payment_queue_received       = "${var.output_payment_queue_received}"
+    input_payment_queue_processed       = "${var.input_payment_queue_processed}"
+    input_queue_finished_sqs_url       = "${var.input_queue_finished_sqs_url}"
+    output_order_queue_received        = "${var.output_order_queue_received}"
     sqs_polling_interval = "${var.sqs_polling_interval}"
     sqs_message_group    = "${var.sqs_message_group}"
+    secret_key_jwt_token = "${var.secret_key_jwt_token}"
   })
   requires_compatibilities = ["FARGATE"]
   network_mode             = "awsvpc"
