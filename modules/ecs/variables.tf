@@ -85,3 +85,6 @@ variable sqs_polling_interval {
 
 variable sqs_message_group {
 }
+
+variable secret_key_jwt_token {
+}

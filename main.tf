@@ -79,6 +79,7 @@ module "ecs" {
   output_order_queue_finished  = "${module.sqs.output_order_queue_finished}"
   sqs_message_group    = "${var.sqs_message_group}"
   sqs_polling_interval = "${var.sqs_polling_interval}"
+  secret_key_jwt_token = "${var.secret_key_jwt_token}"
   depends_on = [
     module.rds,
     module.dynamo,

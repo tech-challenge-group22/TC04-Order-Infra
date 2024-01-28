@@ -48,6 +48,7 @@ resource "aws_ecs_task_definition" "web" {
     output_order_queue_finished        = "${var.output_order_queue_finished}"
     sqs_polling_interval = "${var.sqs_polling_interval}"
     sqs_message_group    = "${var.sqs_message_group}"
+    secret_key_jwt_token = "${var.secret_key_jwt_token}"
   })
   requires_compatibilities = ["FARGATE"]
   network_mode             = "awsvpc"
