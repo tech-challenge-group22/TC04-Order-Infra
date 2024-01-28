@@ -77,7 +77,7 @@
       },
       {
         "name": "AWS_INPUT_ORDER_QUEUE_FINISHED_URL",
-        "value": "${output_order_queue_finished}"
+        "value": "${input_queue_finished_sqs_url}"
       },
       {
         "name": "MSG_POLLING_INTERVAL",

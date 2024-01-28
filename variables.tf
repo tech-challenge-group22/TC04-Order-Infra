@@ -34,7 +34,7 @@ variable "secret_aws" {
   description = "AWS session token"
 }
 
-variable "input_paymentprocessed_sqs_url" {
+variable "input_payment_queue_processed" {
 }
 
 variable "input_queue_finished_sqs_url" {

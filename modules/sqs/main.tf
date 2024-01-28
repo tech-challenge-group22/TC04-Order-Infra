@@ -1,99 +1,43 @@
-resource "aws_sqs_queue" "PaymentQueueReceived" {
-    name                        = "PaymentQueueReceived.fifo"
-    delay_seconds               = 0
-    visibility_timeout_seconds  = 30
-    max_message_size            = 2048
-    message_retention_seconds   = 86400
-    receive_wait_time_seconds   = 2
-    fifo_queue                  = true
-    content_based_deduplication = false
-    policy = jsonencode({
-    Version = "2012-10-17",
-    Statement = [
-      {
-        Effect = "Allow",
-        Action = [
-          "sqs:SendMessage",
-          "sqs:ReceiveMessage",
-          "sqs:DeleteMessage",
-          "sqs:GetQueueAttributes"
-        ]
-      }
-    ]
-  })
+resource "aws_sqs_queue" "order-queue-received" {
+  content_based_deduplication       = false
+  deduplication_scope               = "queue"
+  delay_seconds                     = 0
+  fifo_queue                        = true
+  fifo_throughput_limit             = "perQueue"
+  kms_data_key_reuse_period_seconds = 300
+  kms_master_key_id                 = null
+  max_message_size                  = 2048
+  message_retention_seconds         = 86400
+  name                              = "OrderQueueReceived.fifo"
+  name_prefix                       = null
+  policy                            = "{\"Statement\":[{\"Action\":[\"sqs:SendMessage\",\"sqs:ReceiveMessage\",\"sqs:DeleteMessage\",\"sqs:GetQueueAttributes\"],\"Effect\":\"Allow\"}],\"Version\":\"2012-10-17\"}"
+  receive_wait_time_seconds         = 2
+  redrive_allow_policy              = null
+  redrive_policy                    = null
+  sqs_managed_sse_enabled           = true
+  tags                              = {}
+  tags_all                          = {}
+  visibility_timeout_seconds        = 30
 }
 
-resource "aws_sqs_queue" "PaymentQueueProcessed" {
-    name                        = "PaymentQueueProcessed.fifo"
-    delay_seconds               = 0
-    visibility_timeout_seconds  = 30
-    max_message_size            = 2048
-    message_retention_seconds   = 86400
-    receive_wait_time_seconds   = 2
-    fifo_queue                  = true
-    content_based_deduplication = false
-    policy = jsonencode({
-    Version = "2012-10-17",
-    Statement = [
-      {
-        Effect = "Allow",
-        Action = [
-          "sqs:SendMessage",
-          "sqs:ReceiveMessage",
-          "sqs:DeleteMessage",
-          "sqs:GetQueueAttributes"
-        ]
-      }
-    ]
-  })
-}
-
-resource "aws_sqs_queue" "OrderQueueReceived" {
-    name                        = "OrderQueueReceived.fifo"
-    delay_seconds               = 0
-    visibility_timeout_seconds  = 30
-    max_message_size            = 2048
-    message_retention_seconds   = 86400
-    receive_wait_time_seconds   = 2
-    fifo_queue                  = true
-    content_based_deduplication = false
-    policy = jsonencode({
-    Version = "2012-10-17",
-    Statement = [
-      {
-        Effect = "Allow",
-        Action = [
-          "sqs:SendMessage",
-          "sqs:ReceiveMessage",
-          "sqs:DeleteMessage",
-          "sqs:GetQueueAttributes"
-        ]
-      }
-    ]
-  })
-}
-
-resource "aws_sqs_queue" "OrderQueueFinished" {
-    name                        = "OrderQueueFinished.fifo"
-    delay_seconds               = 0
-    visibility_timeout_seconds  = 30
-    max_message_size            = 2048
-    message_retention_seconds   = 86400
-    receive_wait_time_seconds   = 2
-    fifo_queue                  = true
-    content_based_deduplication = false
-    policy = jsonencode({
-    Version = "2012-10-17",
-    Statement = [
-      {
-        Effect = "Allow",
-        Action = [
-          "sqs:SendMessage",
-          "sqs:ReceiveMessage",
-          "sqs:DeleteMessage",
-          "sqs:GetQueueAttributes"
-        ]
-      }
-    ]
-  })
+resource "aws_sqs_queue" "payment-queue-received" {
+  content_based_deduplication       = false
+  deduplication_scope               = "queue"
+  delay_seconds                     = 0
+  fifo_queue                        = true
+  fifo_throughput_limit             = "perQueue"
+  kms_data_key_reuse_period_seconds = 300
+  kms_master_key_id                 = null
+  max_message_size                  = 2048
+  message_retention_seconds         = 86400
+  name                              = "PaymentQueueReceived.fifo"
+  name_prefix                       = null
+  policy                            = "{\"Statement\":[{\"Action\":[\"sqs:SendMessage\",\"sqs:ReceiveMessage\",\"sqs:DeleteMessage\",\"sqs:GetQueueAttributes\"],\"Effect\":\"Allow\"}],\"Version\":\"2012-10-17\"}"
+  receive_wait_time_seconds         = 2
+  redrive_allow_policy              = null
+  redrive_policy                    = null
+  sqs_managed_sse_enabled           = true
+  tags                              = {}
+  tags_all                          = {}
+  visibility_timeout_seconds        = 30
 }
