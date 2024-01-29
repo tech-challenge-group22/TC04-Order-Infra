@@ -11,7 +11,7 @@ provider "aws" {
 
 terraform {
   backend "s3" {
-    bucket         = "tfstate-tcfiap-order"
+    bucket         = "tc04-tfstate-order"
     key            = "terraform.tfstate"
     region         = "us-east-1"
   }
